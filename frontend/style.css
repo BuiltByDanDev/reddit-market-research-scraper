@@ -21,6 +21,135 @@ header p {
 	font-size: 1.1em;
 }
 
+.controls {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+}
+
+.input-group {
+	margin-right: 15px;
+}
+
+.input-group label {
+	margin-right: 8px;
+	color: #1c1e21;
+	font-weight: 500;
+}
+
+.prefixed-input {
+	display: flex;
+	align-items: center;
+	border: 1px solid #dddfe2;
+	border-radius: 6px;
+	background-color: white;
+	padding-left: 10px;
+}
+
+.prefixed-input span {
+	color: #606770;
+}
+
+#subreddit-input {
+	padding: 10px 10px 10px 5px;
+	border: none;
+	font-size: 1em;
+	width: 180px;
+	outline: none;
+	background: transparent;
+}
+
+#scrape-btn {
+	background-color: #1877f2;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 6px;
+	font-size: 1em;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+#scrape-btn:hover:not(:disabled) {
+	background-color: #166fe5;
+}
+
+#scrape-btn:disabled {
+	background-color: #a0bdf5;
+	cursor: not-allowed;
+}
+
+.status-container {
+	text-align: center;
+	margin-top: 15px;
+	height: 20px; /* Reserve space to prevent layout shift */
+}
+
+#scrape-status {
+	margin-left: 0;
+	color: #606770;
+	font-weight: 500;
+}
+
+.pill-container {
+	max-width: 900px;
+	margin: 25px auto 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 12px;
+}
+
+.pill {
+	padding: 8px 16px;
+	border-radius: 20px;
+	background-color: #f0f2f5;
+	border: 1px solid #ccd0d5;
+	color: #333;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.pill:hover {
+	transform: translateY(-2px) scale(1.05);
+	border-color: #1877f2;
+}
+
+.pill.selected {
+	background-color: #1877f2;
+	color: white;
+	border-color: #1877f2;
+	transform: scale(1.05);
+}
+
+.pill.loading {
+	position: relative;
+	color: transparent; /* Hide text */
+}
+
+.pill.loading::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 16px;
+	height: 16px;
+	margin: -8px 0 0 -8px;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	border-top-color: white;
+	border-radius: 50%;
+	animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 #threads-container {
 	max-width: 800px;
 	margin: 0 auto;
@@ -80,4 +209,51 @@ header p {
 
 .card-body a:hover {
 	text-decoration: underline;
+}
+
+.error {
+	color: #d9534f;
+	font-weight: bold;
+}
+
+/* --- Pagination --- */
+#pagination-controls {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 25px;
+	gap: 15px;
+}
+
+#pagination-controls.hidden {
+	display: none;
+}
+
+#pagination-controls button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color 0.2s;
+}
+
+#pagination-controls button:hover:not(:disabled) {
+	background-color: #0056b3;
+}
+
+#pagination-controls button:disabled {
+	background-color: #cccccc;
+	cursor: not-allowed;
+	opacity: 0.7;
+}
+
+#page-info {
+	font-size: 16px;
+	font-weight: 500;
+	color: #555;
+	min-width: 100px; /* Prevents layout shift */
+	text-align: center;
 }

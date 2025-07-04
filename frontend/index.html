@@ -11,15 +11,53 @@
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
 			rel="stylesheet"
 		/>
+		<style>
+			.controls {
+				text-align: center;
+			}
+			.prefixed-input {
+				display: inline-block;
+			}
+			.prefixed-input span {
+				display: inline-block;
+				margin-right: 5px;
+			}
+			.status-container {
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body>
 		<header>
 			<h1>Reddit Market Research</h1>
 			<p>Pain points & problems scraped from subreddits.</p>
+			<div class="controls">
+				<div class="prefixed-input">
+					<span>r/</span>
+					<input
+						type="text"
+						id="subreddit-input"
+						value="smallbusiness"
+						placeholder="enter subreddit"
+					/>
+				</div>
+				<button id="scrape-btn">Refresh Data</button>
+			</div>
+			<div class="status-container">
+				<span id="scrape-status"></span>
+			</div>
+			<div class="pill-container" id="pill-container">
+				<!-- Subreddit pills will be generated here by JavaScript -->
+			</div>
 		</header>
 		<main id="threads-container">
 			<!-- Reddit threads will be loaded here by JavaScript -->
 		</main>
+		<div id="pagination-controls" class="hidden">
+			<button id="prev-page-btn" disabled>&laquo; Previous</button>
+			<span id="page-info"></span>
+			<button id="next-page-btn" disabled>Next &raquo;</button>
+		</div>
 		<script src="script.js"></script>
 	</body>
 </html>

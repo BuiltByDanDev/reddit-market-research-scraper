@@ -1,8 +1,27 @@
-from flask import Flask, jsonify, send_from_directory
+from flask import Flask, jsonify, send_from_directory, request
 import json
 import os
+# Import the scraper function
+from scraper import run_scraper
 
 app = Flask(__name__, static_folder='frontend', static_url_path='')
+
+@app.route('/api/scrape', methods=['POST'])
+def trigger_scrape():
+    """API endpoint to trigger the Reddit scraper for a specific subreddit."""
+    data = request.get_json()
+    if not data or not data.get('subreddit') or not data['subreddit'].strip():
+        return jsonify({"status": "error", "message": "Subreddit name is required."}), 400
+
+    subreddit = data['subreddit'].strip()
+    print(f"Scrape request received for r/{subreddit}. Running scraper...")
+    try:
+        result = run_scraper(subreddit_name=subreddit)
+        print(f"Scrape finished. Result: {result}")
+        return jsonify(result)
+    except Exception as e:
+        print(f"An error occurred during scraping: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 @app.route('/api/threads')
 def get_threads():
