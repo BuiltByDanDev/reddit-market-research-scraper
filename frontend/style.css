@@ -1,0 +1,83 @@
+body {
+	font-family: "Inter", sans-serif;
+	background-color: #f0f2f5;
+	color: #1c1e21;
+	margin: 0;
+	padding: 20px;
+}
+
+header {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+header h1 {
+	font-size: 2.5em;
+	color: #333;
+}
+
+header p {
+	color: #606770;
+	font-size: 1.1em;
+}
+
+#threads-container {
+	max-width: 800px;
+	margin: 0 auto;
+	display: grid;
+	gap: 20px;
+}
+
+.card {
+	background-color: #fff;
+	border-radius: 8px;
+	border: 1px solid #dddfe2;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+	padding: 16px;
+	border-bottom: 1px solid #e9ebee;
+}
+
+.card-header h2 {
+	margin: 0;
+	font-size: 1.2em;
+	color: #050505;
+}
+
+.card-header .score {
+	font-size: 0.9em;
+	color: #606770;
+	font-weight: 500;
+}
+
+.card-body {
+	padding: 16px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+	white-space: pre-wrap; /* Preserves whitespace and line breaks */
+	word-wrap: break-word;
+}
+
+.card-body.expanded {
+	max-height: 1000px; /* Adjust as needed */
+	padding: 16px;
+	transition: max-height 0.5s ease-in, padding 0.5s ease-in;
+}
+
+.card-body a {
+	color: #1877f2;
+	text-decoration: none;
+}
+
+.card-body a:hover {
+	text-decoration: underline;
+}
