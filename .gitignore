@@ -1,6 +1,9 @@
 # Environment variables
 .env
 
+# Generated data
+scraped_data.json
+
 # Python
 __pycache__/
 *.pyc
