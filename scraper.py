@@ -9,7 +9,7 @@ import json
 reddit = praw.Reddit(
     client_id=os.getenv("REDDIT_CLIENT_ID"),
     client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
-    user_agent="MarketResearchScraper/0.1 by u/YourUsername"  # TODO: Replace with your Reddit username
+    user_agent="MarketResearchScraper/0.1 by u/Megalodong-"
 )
 
 print("Successfully connected to Reddit API")
